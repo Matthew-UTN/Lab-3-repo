@@ -59,7 +59,7 @@ namespace Calculadora
             get { return quantosNos; }
         }
 
-        public NoLista<Dado> Atual
+        public NoLista<Dado> Actual
         {
             get
             {
@@ -67,9 +67,9 @@ namespace Calculadora
             }
         }
 
-        public void InsertarAntesDeComenzar(Dado novoDado)
+        public void InsertarAntesDeComenzar(Dado nuevoDado)
         {
-            var novoNo = new NoLista<Dado>(novoDado, primero);
+            var novoNo = new NoLista<Dado>(nuevoDado, primero);
 
             if (ultimo == null)
                 ultimo = novoNo;
@@ -118,14 +118,26 @@ namespace Calculadora
         {
             anterior = null;
             actual = primero;
+            
             // Em seguida, é verificado se a lista está vazia. Caso esteja, é
             // retornado false ao local de chamada, indicando que a chave não foi
             // encontrada, e actual e anterior ficam valendo null
+            //--------------------------Traduccion-------------------------
+            // Luego se verifica para ver si la lista está vacía. Si es así, es
+            // se devuelve falso a la ubicación de la llamada, 
+            // lo que indica que no se encontró la clave y que actual y anterior son nulos
+
             if (EstaVacia)
                 return false;
+
             // a lista não está vazia, possui nós
             // dado procurado é menor que o primero dado da lista:
             // portanto, dado procurado não existe
+            //---------------------------Traduccion--------------------------------------------------
+            // la lista no está vacía, los datos buscados             
+            // en los nodos son más pequeños que los primeros datos de la lista:          
+            // por lo tanto, los datos buscados no existen
+
             if (outroProcurado.CompareTo(primero.Info) < 0)
                 return false;
             // dado procurado é maior que o último dado da lista:
