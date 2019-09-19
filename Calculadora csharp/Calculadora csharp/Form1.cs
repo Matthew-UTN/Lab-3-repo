@@ -12,9 +12,9 @@ namespace Calculadora_csharp
 {
     public partial class Form1 : Form
     {
-        Double resultValue = 0;
-        String operationPerformed = "";
-        bool isOperationPerformed = false;
+        Double valorResultante = 0;
+        String accionTomada = "";
+        bool accionFueEjecutado = false;
         public Form1()
         {
             InitializeComponent();
@@ -22,10 +22,10 @@ namespace Calculadora_csharp
 
         private void button_click(object sender, EventArgs e)
         {
-            if ((textBox_Result.Text == "0") || (isOperationPerformed))
+            if ((textBox_Result.Text == "0") || (accionFueEjecutado))
                 textBox_Result.Clear();
 
-            isOperationPerformed = false;
+            accionFueEjecutado = false;
             Button button = (Button)sender;
             if (button.Text == ".")
             {
@@ -43,20 +43,20 @@ namespace Calculadora_csharp
         {
             Button button = (Button)sender;
 
-            if (resultValue != 0)
+            if (valorResultante != 0)
             {
                 button15.PerformClick();
-                operationPerformed = button.Text;
-                labelCurrentOperation.Text = resultValue + " " + operationPerformed;
-                isOperationPerformed = true;
+                accionTomada = button.Text;
+                labelCurrentOperation.Text = valorResultante + " " + accionTomada;
+                accionFueEjecutado = true;
             }
             else
             {
 
-                operationPerformed = button.Text;
-                resultValue = Double.Parse(textBox_Result.Text);
-                labelCurrentOperation.Text = resultValue + " " + operationPerformed;
-                isOperationPerformed = true;
+                accionTomada = button.Text;
+                valorResultante = Double.Parse(textBox_Result.Text);
+                labelCurrentOperation.Text = valorResultante + " " + accionTomada;
+                accionFueEjecutado = true;
             }
         }
 
@@ -68,29 +68,29 @@ namespace Calculadora_csharp
         private void button5_Click(object sender, EventArgs e)
         {
             textBox_Result.Text = "0";
-            resultValue = 0;
+            valorResultante = 0;
         }
 
         private void button15_Click(object sender, EventArgs e)
         {
-            switch (operationPerformed)
+            switch (accionTomada)
             {
                 case "+":
-                    textBox_Result.Text = (resultValue + Double.Parse(textBox_Result.Text)).ToString();
+                    textBox_Result.Text = (valorResultante + Double.Parse(textBox_Result.Text)).ToString();
                     break;
                 case "-":
-                    textBox_Result.Text = (resultValue - Double.Parse(textBox_Result.Text)).ToString();
+                    textBox_Result.Text = (valorResultante - Double.Parse(textBox_Result.Text)).ToString();
                     break;
                 case "*":
-                    textBox_Result.Text = (resultValue * Double.Parse(textBox_Result.Text)).ToString();
+                    textBox_Result.Text = (valorResultante * Double.Parse(textBox_Result.Text)).ToString();
                     break;
                 case "/":
-                    textBox_Result.Text = (resultValue / Double.Parse(textBox_Result.Text)).ToString();
+                    textBox_Result.Text = (valorResultante / Double.Parse(textBox_Result.Text)).ToString();
                     break;
                 default:
                     break;
             }
-            resultValue = Double.Parse(textBox_Result.Text);
+            valorResultante = Double.Parse(textBox_Result.Text);
             labelCurrentOperation.Text = "";
         }
     }

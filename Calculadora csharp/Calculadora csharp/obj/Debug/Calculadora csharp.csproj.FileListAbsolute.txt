@@ -8,3 +8,13 @@ C:\Users\Matt\source\repos\Calculadora csharp\Calculadora csharp\obj\Debug\Calcu
 C:\Users\Matt\source\repos\Calculadora csharp\Calculadora csharp\obj\Debug\Calculadora csharp.csproj.CoreCompileInputs.cache
 C:\Users\Matt\source\repos\Calculadora csharp\Calculadora csharp\obj\Debug\Calculadora csharp.exe
 C:\Users\Matt\source\repos\Calculadora csharp\Calculadora csharp\obj\Debug\Calculadora csharp.pdb
+C:\Users\Matt\Repo\C-calculadora\Calculadora csharp\Calculadora csharp\bin\Debug\Calculadora csharp.exe.config
+C:\Users\Matt\Repo\C-calculadora\Calculadora csharp\Calculadora csharp\bin\Debug\Calculadora csharp.exe
+C:\Users\Matt\Repo\C-calculadora\Calculadora csharp\Calculadora csharp\bin\Debug\Calculadora csharp.pdb
+C:\Users\Matt\Repo\C-calculadora\Calculadora csharp\Calculadora csharp\obj\Debug\Calculadora csharp.csprojAssemblyReference.cache
+C:\Users\Matt\Repo\C-calculadora\Calculadora csharp\Calculadora csharp\obj\Debug\Calculadora_csharp.Form1.resources
+C:\Users\Matt\Repo\C-calculadora\Calculadora csharp\Calculadora csharp\obj\Debug\Calculadora_csharp.Properties.Resources.resources
+C:\Users\Matt\Repo\C-calculadora\Calculadora csharp\Calculadora csharp\obj\Debug\Calculadora csharp.csproj.GenerateResource.cache
+C:\Users\Matt\Repo\C-calculadora\Calculadora csharp\Calculadora csharp\obj\Debug\Calculadora csharp.csproj.CoreCompileInputs.cache
+C:\Users\Matt\Repo\C-calculadora\Calculadora csharp\Calculadora csharp\obj\Debug\Calculadora csharp.exe
+C:\Users\Matt\Repo\C-calculadora\Calculadora csharp\Calculadora csharp\obj\Debug\Calculadora csharp.pdb
