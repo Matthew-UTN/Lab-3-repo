@@ -142,28 +142,45 @@ namespace Calculadora
                 return false;
             // dado procurado é maior que o último dado da lista:
             // portanto, dado procurado não existe
+            //---------------------------Traduccion--------------------------------------------------
+            // Los datos de búsqueda son mayores que los últimos datos de la lista:
+            //por lo tanto, los datos de búsqueda no existen
             if (outroProcurado.CompareTo(ultimo.Info) > 0)
             {
                 anterior = ultimo;
                 actual = null;
                 return false;
             }
-            
+
             // caso não tenha sido definido que a chave está fora dos limites de
             // chaves da lista, vamos procurar no seu interior
             // o apontador actual indica o primero nó da lista e consideraremos que
             // ainda não achou a chave procurada nem chegamos ao final da lista
+            //---------------------------Traduccion--------------------------------------------------
+            //Si no se ha definido que la clave está fuera de los límites de 
+            //la clave de la lista, miraremos dentro del puntero actual para
+            //indicar el primer nodo de la lista y asumiremos que aún no ha encontrado 
+            //la clave que buscó y no ha llegado al final de la lista.
+
             bool achou = false;
             bool fim = false;
             // repete os comandos abaixo enquanto não achou o RA nem chegou ao
             // final da lista
+            //---------------------------Traduccion--------------------------------------------------
+            //repita los comandos a continuación sin encontrar el RA o llegar al final de la lista
             while (!achou && !fim)
                 // se o apontador actual vale null, indica final da lista
+                //---------------------------Traduccion--------------------------------------------------
+                //si el puntero actual es nulo, indica el final de la lista
                 if (actual == null)
                     fim = true;
                 // se não chegou ao final da lista, verifica o valor da chave actual
+                //---------------------------Traduccion--------------------------------------------------
+                //si no ha llegado al final de la lista, verifique el valor de la clave actual
                 else
                 // verifica igualdade entre chave procurada e chave do nó actual
+                //---------------------------Traduccion--------------------------------------------------
+                // comprueba la igualdad entre la clave buscada y la clave de nodo actual
                 if (outroProcurado.CompareTo(actual.Info) == 0)
                     achou = true;
                 else
@@ -172,6 +189,13 @@ namespace Calculadora
                 // termina a pesquisa indicando que não achou. Anterior
                 // aponta o anterior ao actual, que foi acessado por
                 // último
+                //---------------------------Traduccion--------------------------------------------------
+                /* Si la clave actual es mayor que la buscada, significa que 
+                 * la clave buscada no existe en la lista ordenada y, por lo tanto, 
+                 * finaliza la búsqueda, lo que indica que no la encontró.
+                 * Puntos anteriores al anterior al actual,
+                 * al que se accedió por última */
+
                 if (actual.Info.CompareTo(outroProcurado) > 0)
                     fim = true;
                 else
@@ -180,6 +204,10 @@ namespace Calculadora
                     // então a pesquisa continua, de maneira que o apontador
                     // anterior deve apontar o nó actual e o apontador actual
                     // deve seguir para o nó seguinte
+                    //---------------------------Traduccion--------------------------------------------------
+                    /* si no encontró la clave buscada o una> clave, entonces 
+                     * la búsqueda continúa para que el puntero anterior apunte 
+                     * al nodo actual y el puntero actual vaya al siguiente nodo*/
                     anterior = actual;
                     actual = actual.Prox;
                 }
@@ -188,24 +216,35 @@ namespace Calculadora
             // encontrada, ou o nó onde ela deveria estar para manter a
             // ordenação da lista. O apontador anterior aponta o nó anterior
             // ao actual
-            return achou; // devolve o valor da variável achou, que indica
-        } // se a chave procurada foi ou não encontrado
+            //---------------------------Traduccion--------------------------------------------------
+            /* Finalmente, si la búsqueda se ha completado, el puntero actual apunta 
+             * al nodo donde se encuentra la clave buscada, si se encontró, 
+             * o al nodo donde debería estar para mantener el orden de la lista. 
+             * El puntero anterior apunta al nodo anterior al actual.*/
 
+            return achou; // devolve o valor da variável achou, que indica
+            //---------------------------Traduccion--------------------------------------------------
+            //devuelve el valor de la variable encontrada, que indica
+        } // se a chave procurada foi ou não encontrado
+        //---------------------------Traduccion--------------------------------------------------
+        //si se encontró o no la clave de búsqueda
         public bool inserirEmOrdem(Dado dados)
         {
-            if (!existeDado(dados)) // existeChave configura anterior e actual
-            { // aqui temos certeza de que a chave não existe
-                if (EstaVacia) // se a lista está vazia, então o
-                    InsertarAntesDeComenzar(dados); // novo nó é o primero da lista
+            if (!existeDado(dados)) // existeChave configura anterior e actual -- configura anteriores y actuales
+            { // aqui temos certeza de que a chave não existe -- aquí estamos seguros de que la clave no existe
+                if (EstaVacia) // se a lista está vazia, então o -- si la lista está vacía, entonces el
+
+                    InsertarAntesDeComenzar(dados); // novo nó é o primero da lista -- nuevo nodo es el primero en la lista
+
                 else
                 if (anterior == null && actual != null)
-                    InsertarAntesDeComenzar(dados); // liga novo antes do primero
+                    InsertarAntesDeComenzar(dados); // liga novo antes do primero -- llamar nuevo antes del primero
                 else
-                    InserirNoMeio(dados); // insere entre os nós anterior e actual
+                    InserirNoMeio(dados); // insere entre os nós anterior e actual -- inserta entre los nodos anterior y actual
 
-                return true;  // significa que incluiu
+                return true;  // significa que incluiu -- significa que incluye
             }
-            return false;   // significa que não incluiu
+            return false;   // significa que não incluiu -- significa que no incluyó
 
             //throw new Exception("Aluno já cadastrado!");
         }
@@ -216,15 +255,15 @@ namespace Calculadora
             {                         // actual e anterior
                 quantosNos--;
 
-                if (actual == primero)  // se vamos excluir o 1o nó
+                if (actual == primero)  // se vamos excluir o 1o nó -- si eliminamos el primer nodo
                 {
                     primero = primero.Prox;
-                    if (primero == null)  // esvaziou
+                    if (primero == null)  // esvaziou -- vaciado
                         ultimo = null;
                 }
                 else
-                    if (actual == ultimo)    // se vamos excluir o último nó
-                    {
+                    if (actual == ultimo)    // se vamos excluir o último nó -- si eliminamos el último nodo
+                {
                         ultimo = anterior;
                         ultimo.Prox = null;
                     }
@@ -239,14 +278,17 @@ namespace Calculadora
         }
         private void InserirNoMeio(Dado dados)
         {
-            var novo = new NoLista<Dado>(dados, null); // guarda dados no
-                                                       // novo nó
+            var novo = new NoLista<Dado>(dados, null); // guarda dados no -- almacenar datos en
+                                                       // novo nó -- nuevo nudo
+
             // existeChave() encontrou intervalo de inclusão do novo nó
-            anterior.Prox = novo; // liga anterior ao novo
-            novo.Prox = actual; // e novo no actual
-            if (anterior == ultimo) // se incluiu ao final da lista,
-                ultimo = novo; // atualiza o apontador ultimo
-            quantosNos++; // incrementa número de nós da lista
+            //---------------------------Traduccion--------------------------------------------------
+            //               encontrou intervalo de inclusão do novo nó
+            anterior.Prox = novo; // liga anterior ao novo -- liga anterior a nueva
+            novo.Prox = actual; // e novo no actual -- y nuevo en el actual
+            if (anterior == ultimo) // se incluiu ao final da lista, -- incluido al final de la lista,
+                ultimo = novo; // atualiza o apontador ultimo -- incrementa número de nós da lista
+            quantosNos++; // incrementa número de nós da lista -- incrementar el número de nodos en la lista
         }
       
         public void ordenar()
@@ -257,6 +299,10 @@ namespace Calculadora
                 // achar o menor de todos
                 // remover o menor de todos
                 // incluir o menor de todos já removido na lista ordenada
+                //---------------------------Traduccion--------------------------------------------------
+                // encuentra el más pequeño de todos
+                // eliminar el más pequeño de todos
+                // incluir el más pequeño que se haya eliminado de la lista ordenada
             }
             this.primero = ordenada.primero;
             this.ultimo = ordenada.ultimo;
