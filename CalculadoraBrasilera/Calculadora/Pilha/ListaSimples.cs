@@ -81,8 +81,9 @@ namespace Calculadora
         public Dado RemoverPrimero()
         {
             if (EstaVacia)
+            {
                 throw new Exception("Lista vacia!");
-
+            }
             Dado o = primero.Info;
             primero = primero.Prox;
             if (primero == null)
