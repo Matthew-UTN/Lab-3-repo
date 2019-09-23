@@ -58,6 +58,7 @@ namespace Calculadora
                         /*
                          Comente el ep el cual se usaba para el posfixa 
                          */
+
                         Expresion ei = Expresion.Dicionarizar(edVisor.Text); //edVisor Ingresa lee el ejericico a resolver
                         
                         //Expresion ep = Expresion.TraduzirParaPosfixa(ei); // En estas lineas crea el posfixa
@@ -230,6 +231,7 @@ namespace Calculadora
             String posfixa = ExpPosfixa.getExpresion;
 
             Pila<double> p = new Pila<double>();
+
             for (int i = 0; i < posfixa.Length; i++)
             {
                 if (!isOperador(posfixa[i]))
