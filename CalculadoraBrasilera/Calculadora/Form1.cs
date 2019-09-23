@@ -172,6 +172,11 @@ namespace Calculadora
 
         public static Expresion TraduzirParaPosfixa(Expresion expressaoInfixa)
         {
+            /*
+             Crea strings para guardar el ejercicio para ir buscando caracteres especificos
+             como por donde empieza y termina un parentesis y lo guarda en el posfixa con un metodo de apilar y desapilar que no entiendo
+             */
+
             String infixa = expressaoInfixa.getExpresion;
 
             Pila<char> p  = new Pila<char>();
@@ -186,7 +191,7 @@ namespace Calculadora
                     if (infixa[i] == '-')
                         if (i == 0 || infixa[i - 1] == '(')
                         {
-                            p.Apilar('@');
+                            p.Apilar('@');//Pone @ como para marcar los terminos donde empieza y donde terminan
                             unario = true;
                         }
 
@@ -198,7 +203,7 @@ namespace Calculadora
                         {
                             char operadorComMaiorPrec = p.OTopo();
                             if (operadorComMaiorPrec == '(')
-                                parar = true;
+                                parar = true; 
                             else
                             {
                                 posfixa += operadorComMaiorPrec;
@@ -207,7 +212,7 @@ namespace Calculadora
                         }
 
                         if (infixa[i] != ')')
-                            p.Apilar(infixa[i]);
+                            p.Apilar(infixa[i]); // apilando para guardar un numero
                         else
                             p.Desapilar();
                     }
@@ -228,20 +233,22 @@ namespace Calculadora
 
         public static double ResolverPosfixa(Expresion ExpPosfixa)
         {
+
+            //Va mezclando el ejercicio de los numeros con la Posfixa
             String posfixa = ExpPosfixa.getExpresion;
 
             Pila<double> p = new Pila<double>();
 
             for (int i = 0; i < posfixa.Length; i++)
             {
-                if (!isOperador(posfixa[i])) {
+                if (!isOperador(posfixa[i])) { //Si el caracter en la posicion de i no es un operador 
 
                     if (posfixa[i] == '@')
                         p.Apilar(p.Desapilar() * -1);
                     else
                         p.Apilar(ExpPosfixa.getDiccionario[posfixa[i]]);
                 }
-                else
+                else //Si es un operador lo usa para hacer la operacion que necesita, y despues la vuelve a apilar
                 {
                     double operando2 = p.Desapilar(),
                            operando1 = p.Desapilar();
@@ -250,7 +257,7 @@ namespace Calculadora
                 }
             }
 
-            return p.Desapilar();
+            return p.Desapilar(); //el desapilar devuelve un double 
         }
 
         private static double SubExpressao(double operando1, double operando2, char sinal)
@@ -272,7 +279,7 @@ namespace Calculadora
             }
         }
 
-        private static bool isOperador(char c)
+        private static bool isOperador(char c) // Comprueba que la señal (El caracter que acaba de entrar) sea uno de los ya cargados en las señales
         {
             foreach (char siñal in señales)
                 if (c == siñal)
@@ -281,7 +288,7 @@ namespace Calculadora
             return false;
         }
 
-        private static bool Precedencia(char c1, char c2)
+        private static bool Precedencia(char c1, char c2) // Con esto creo que intenta devolver la ¿posfixa?
         {
             if (c1 == '@' || c2 == '@')
                 return true;

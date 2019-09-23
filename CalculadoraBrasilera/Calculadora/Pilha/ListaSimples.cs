@@ -14,7 +14,7 @@ namespace Calculadora
         private NoLista<Dado> anterior, actual;
         private int quantosNos;
 
-        private bool primerRutaDeAcceso;
+        private bool primerRutaDeAcceso; // no se usa nunca
 
         public ListaSimples()
         {

@@ -8,6 +8,10 @@ namespace Calculadora
 {
     public class NoLista<Dado> where Dado : IComparable<Dado>
     {
+
+        /*
+         No lista es una lista la cual esta ¿vacia?
+         */
         private Dado info;
         private NoLista<Dado> prox;
 
