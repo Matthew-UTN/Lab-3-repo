@@ -55,11 +55,18 @@ namespace Calculadora
                         MessageBox.Show("Parentesis mal usadas");
                     else
                     {
-                        Expresion ei = Expresion.Dicionarizar(edVisor.Text);
-                        Expresion ep = Expresion.TraduzirParaPosfixa(ei); // En estas lineas crea el posfixa
+                        /*
+                         Comente el ep el cual se usaba para el posfixa 
+                         */
+                        Expresion ei = Expresion.Dicionarizar(edVisor.Text); //edVisor Ingresa lee el ejericico a resolver
+                        
+                        //Expresion ep = Expresion.TraduzirParaPosfixa(ei); // En estas lineas crea el posfixa
 
-                        edResultado.Text = Expresion.ResolverPosfixa(ep) + "";
-                        lbSequencias.Text = ep.expresion; // y con esta lo asigna a el label
+                        ei = Expresion.TraduzirParaPosfixa(ei); // esto no estaba.
+
+                        edResultado.Text = Expresion.ResolverPosfixa(ei) + ""; //En el original se enviaba para solucionar "ep"
+                        
+                        //lbSequencias.Text = ep.getExpresion; // y con esta lo asigna a el label
                     }
                     break;
 
@@ -116,12 +123,12 @@ namespace Calculadora
         private String _expresion;
         private Dictionary<char, double> _diccionario;
 
-        public String expresion
+        public String getExpresion
         {
             get { return _expresion; }
         }
 
-        public Dictionary<char, double> diccionario
+        public Dictionary<char, double> getDiccionario
         {
             get { return _diccionario; }
         }
@@ -141,6 +148,7 @@ namespace Calculadora
                 if (!isOperador(nuevaExpresion[i]))
                 {
                     //Si no es un operador, es un número, por lo que tomamos su comienzo y nos desplazamos hasta encontrar el siguiente operador, o el final de la cadena.
+
                     //Después de eso, sabemos su tamaño, así que lo subcadenamos y lo convertimos a double.
                     string numero = "";
                     int indexInicio = i;
@@ -163,7 +171,7 @@ namespace Calculadora
 
         public static Expresion TraduzirParaPosfixa(Expresion expressaoInfixa)
         {
-            String infixa = expressaoInfixa.expresion;
+            String infixa = expressaoInfixa.getExpresion;
 
             Pila<char> p  = new Pila<char>();
             String posfixa = "";
@@ -214,12 +222,12 @@ namespace Calculadora
                     posfixa += operadorComMaiorPrec;
             }
 
-            return new Expresion(posfixa, expressaoInfixa.diccionario);
+            return new Expresion(posfixa, expressaoInfixa.getDiccionario);
         }
 
         public static double ResolverPosfixa(Expresion ExpPosfixa)
         {
-            String posfixa = ExpPosfixa.expresion;
+            String posfixa = ExpPosfixa.getExpresion;
 
             Pila<double> p = new Pila<double>();
             for (int i = 0; i < posfixa.Length; i++)
@@ -228,7 +236,7 @@ namespace Calculadora
                     if (posfixa[i] == '@')
                         p.Apilar(p.Desapilar() * -1);
                     else
-                        p.Apilar(ExpPosfixa.diccionario[posfixa[i]]);
+                        p.Apilar(ExpPosfixa.getDiccionario[posfixa[i]]);
                 else
                 {
                     double operando2 = p.Desapilar(),
