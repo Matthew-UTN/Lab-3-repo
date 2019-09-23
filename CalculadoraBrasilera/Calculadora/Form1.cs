@@ -234,11 +234,13 @@ namespace Calculadora
 
             for (int i = 0; i < posfixa.Length; i++)
             {
-                if (!isOperador(posfixa[i]))
+                if (!isOperador(posfixa[i])) {
+
                     if (posfixa[i] == '@')
                         p.Apilar(p.Desapilar() * -1);
                     else
                         p.Apilar(ExpPosfixa.getDiccionario[posfixa[i]]);
+                }
                 else
                 {
                     double operando2 = p.Desapilar(),
