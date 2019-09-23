@@ -104,6 +104,11 @@ namespace Calculadora
         {
 
         }
+
+        private void LbSequencias_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
     public class Expresion

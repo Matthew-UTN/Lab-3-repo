@@ -58,11 +58,12 @@
             // 
             this.lbSequencias.AutoSize = true;
             this.lbSequencias.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.25F);
-            this.lbSequencias.Location = new System.Drawing.Point(7, 104);
+            this.lbSequencias.Location = new System.Drawing.Point(130, 108);
             this.lbSequencias.Name = "lbSequencias";
             this.lbSequencias.Size = new System.Drawing.Size(84, 26);
             this.lbSequencias.TabIndex = 4;
             this.lbSequencias.Text = "Pósfixa";
+            this.lbSequencias.Click += new System.EventHandler(this.LbSequencias_Click);
             // 
             // Form1
             // 
